@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Talking Cat 🐱</title>
+<style>
+body {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  background: #ffe8f3;
+  padding: 30px 15px;
+}
+.cat { font-size: 120px; }
+h1 { color: #d63384; }
+input {
+  padding: 14px;
+  width: 80%;
+  max-width: 320px;
+  border: 2px solid pink;
+  border-radius: 12px;
+  font-size: 16px;
+}
+button {
+  padding: 13px 22px;
+  margin: 12px;
+  border: none;
+  border-radius: 12px;
+  background: #ff69a6;
+  color: white;
+  font-size: 17px;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+<h1>🐱 Talking Cat 🐱</h1>
+<div class="cat">😺</div>
+<p>Menga biror narsa yoz!</p>
+<input id="words" placeholder="Salom, mushukcha!">
+<br>
+<button onclick="talk()">Gapirtirish 🗣️</button>
+<script>
+function talk() {
+  const words = document.getElementById("words").value;
+  if (!words.trim()) {
+    alert("Avval biror narsa yoz! 😺");
+    return;
+  }
+  const voice = new SpeechSynthesisUtterance(words);
+  voice.lang = "uz-UZ";
+  speechSynthesis.cancel();
+  speechSynthesis.speak(voice);
+}
+</script>
+</body>
+</html>
+
